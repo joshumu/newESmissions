@@ -145,8 +145,8 @@ mission "Anarco Uprising 4"
 	cargo "Factory Equipment" 79
 	illegal 100000 `They arrest Beto just for being from a pirate planet and give you a 100000 credit fine for your stolen cargo but let the rest of you go.`
 	stealth
-	blocked "You are missing something. You need 100 Laser Rifles and 10 Frag Grenades."
-	clearance `Beto talks to the defense group by the landing area to make sure we are not mistaken for pirates.`
+	clearance
+	infiltrating
 	to offer
 		has "Anarco Uprising 3: done"
 	passengers 3
@@ -201,12 +201,14 @@ mission "Anarco Uprising 4"
 				`	"Yeah, I got them."`
 				`	"No. Not yet."`
 					goto notyet
-			`	"Great," says Beto. "It would be awful to get to Freedom only to realize we forgot something. It should go without saying that we will be in trouble if we get caught with all this stuff so we probably shouldn't go through Republic space. That means we are going to need a lot of spare fuel to make it through all of the uninhabited systems north of here. Some friends of mine got us a Ramscoop, so that should help."`
-		 	`	"And we should resist the temptation of hanging around Alnitak. There is a Navy base on Farpoint and even though they are Oathkeepers they still might scan us. Lucky for us I of is a system with good solar wind and few pirates.  Well, we better get moving or we may never leave this garden."`
+			`	"Great," says Beto. "It would be awful to get to Freedom only to realize we forgot something. It should go without saying that we will be in trouble if we get caught with all this stuff so we probably shouldn't go through Republic space. That means we are going to need a lot of spare fuel to make it through all of the uninhabited systems north of here. Some friends of mine got us a Ramscoop, so make sure to install it."`
+
+			`	"And we should resist the temptation of hanging around Alnitak. There is a Navy base on Farpoint and even though they are Oathkeepers they still might scan us. Lucky for us I know of a system with good solar wind and few pirates.  Well, we better get moving or we may never leave this garden."`
 				accept
 
 			label notyet
-			`	"We definitely need to do that before we go. Imagine if we got to Freedom only to realize we forgot something. Remember, we need one hundred Laser Rifles and ten boxes of Fragmentation Grenades. It should go without saying that we will be in trouble if we get caught with all this stuff so we probably shouldn't go through Republic space. That means we are going to need a lot of spare fuel to make it through all of the uninhabited systems north of here. Some friends of mine got us a Ramscoop, so that should help."`
+			`	"We definitely need to do that before we go. Imagine if we got to Freedom only to realize we forgot something. Remember, we need one hundred Laser Rifles and ten boxes of Fragmentation Grenades. It should go without saying that we will be in trouble if we get caught with all this stuff so we probably shouldn't go through Republic space. That means we are going to need a lot of spare fuel to make it through all of the uninhabited systems north of here. Some friends of mine got us a Ramscoop, so make sure to install it."`
+
 			`	"And we should resist the temptation of hanging around Alnitak. There is a Navy base on Farpoint and even though they are Oathkeepers they still might scan us. Lucky for us I know of a system with good solar wind and few pirates.  Well, we better get moving or we will get stuck in this garden forever."`
 				accept
 
@@ -216,16 +218,18 @@ mission "Anarco Uprising 4"
 		outfit "Fragmentation Grenades" -10
 		payment 200000
 		conversation
-			`You land near the factory and a crew comes out to unload the weapons and equipment before you finish powering down the <ship>. As you step outside you see the three escorts have joined the meager 'Freedom Fighters' fleet flying overhead, ready for a pirate attack. Two people run up filled with excitement and embrace not only Beto but Ale and Bunker too. They seem to already know each other. "Eddy, Larisa. This is <first>. We couldn't have done it without him," says Beto by means of introduction.`
+			`You land near the factory and a crew comes out to unload the weapons and equipment. As you step outside you see the three escorts have joined the meager 'Freedom Fighters' fleet overhead, ready for any pirate attack. Two people run up filled with excitement and embrace not only Beto but Ale and Bunker too. They seem to already know each other. "Lalo, Larisa. This is <first>. We couldn't have done it without them," says Beto by means of introduction.`
 			`	"Is that so?", says Larisa. "Thank you so much. You must stay for dinner!"`
 			choice
 				`	"I really ought to be going."`
 					goto getgoing
 				`	"I would love to."`
-			`	They give you a tour of the factory as it crews slowly move in equipment piece by piece. Part of the factory has been converted into a kitchen and social space. The smell of their cooking makes our belly rumble...some more details and conversation...`
+			`	They give you a tour of the factory as equipment is moved in piece by piece. Part of the factory has been converted into a kitchen and social space. The smell of their cooking makes your belly rumble. "Thanks to you we finally have some means of production," says Larisa. "We are starting off with making components for Megaparcec. The unions there are especially desperate for new trade partners. That will give them more leverage and autonomy from the Syndicate. And that's good for us because we need all the allies we can get."`
+			`	"Food's ready!" calls out Lalo. In short order a few volunteers serve food to nearly a hundred people who take their plates outside and eat sitting on the grass while conversing in small groups. The meal was simple but delicious. Larisa talks about plans to mine asteroids in the uninhabited systems you just passed through. Ale tells of when she and Bunker met Beto, Larisa and Lalo agitating at a Megaparcec union strike. Lalo is pressured into talking about his part in the recent slave freeing raid and Bunker retells the story of when you and he filmed the Syndicate and the slavers. `
+
 
 			label getgoing
-			`	Ale and Bunker tell you they will be staying on Freedom for awhile to work on the project. "Don't worry about us. We will find transport back home when we are done here. We will be sure to let you know if we need you for more work, says Bunker as he hands you fist of credits. You pleasantly surprised as you were never sure if this was paid or volunteer work. You wish them luck, promising to visit again soon.`
+			`	Ale and Bunker tell you they will be staying on Freedom for awhile to work on the project. "Don't worry about us. We will find transport back home when we are done here. We will be sure to let you know if we need you for more work," says Bunker as he hands you fist of credits. "Unfortunately the pirates control the side of town with the spaceport so you will have to bribe them and land again if you want to refuel or buy anything." You say goodbye to everyone, promising to visit again soon.`
 
 	on enter "Alcyone"
 		conversation
@@ -236,9 +240,9 @@ mission "Anarco Uprising 4"
 			label stonedinspace
 			"You try to fly casual but you can't help but to feel a bit paranoid. It was nice in the garden but now you're starting to think flying around high in pirate territory was a mistake."
 
-	on enter "Hassaleh"
+	onk enter "Hassaleh"
 		dialog
-			` "We should stay in this system for a bit. There is good solar wind and not too many pirates, so you will have a better shot at boarding one and taking their fuel."`
+			` "We should stay in this system for a bit. There is good solar wind and not too many pirates. But if one happens by try to disable it so we can board and take their fuel."`
 
 	npc accompany save
 		government "Freedom Fighters"
